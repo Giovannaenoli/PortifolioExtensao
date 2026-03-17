@@ -3,147 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCat | Portifolio Projeto de Extensão</title>
+    <title>ECOCAT | Projeto de Extensão Universitária</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=VT323&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="bg-visuals">
-        <div class="blob-1"></div>
-        <div class="blob-2"></div>
+    <div class="bg-lights">
+        <div class="orb orb-green"></div>
+        <div class="orb orb-blue"></div>
     </div>
 
     <header>
-        <div class="container nav-bar">
-            <div class="brand">
-                <img src="img/01397272-d3df-470e-b8d5-46a1c5819957-removebg-preview.png" alt="UniFil" class="unifil-logo-img" onerror="this.style.display='none'">
-                <span class="logo-pixel">EcoCat</span>
-                <span class="unifil-pill">UniFil Extensão</span>
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="uni-logo">
+                    <img src="img/01397272-d3df-470e-b8d5-46a1c5819957-removebg-preview.png" alt="Logo UniFil">
+                </div>
+                <div class="logo-nav">ECOCAT</div>
             </div>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#ods">Impacto</a>
-                <a href="#equipe" class="nav-btn">Quem Somos</a>
-            </nav>
+            
+            <div class="nav-right">
+                <nav class="nav-links">
+                    <a href="#">O Jogo</a>
+                    <a href="#">O Projeto</a>
+                    <a href="#equipe">Equipe</a>
+                </nav>
+                <a href="#" class="btn-together">Conheça o Projeto</a>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero" id="home" data-aos="fade-up">
-            <div class="hero-text">
-                <div class="floating-badge">Gaming for Good</div>
-                <h1>A Revolução <br><span class="gradient-pixel">EcoCat</span></h1>
-                <p>O EcoCat utiliza gamificação de alto nível para moldar os líderes sustentáveis de amanhã através da economia circular.</p>
-                <div class="hero-actions">
-                    <button class="btn-main">Explorar Simulador</button>
-                    <button class="btn-secondary">Ver Pitch</button>
-                </div>
-            </div>
-            <div class="hero-visual" data-aos="zoom-in" data-aos-delay="200">
-                <div class="pixel-frame">
-                    <img src="assets/ecocat-ceo.png" alt="EcoCat" class="floating-cat" onerror="this.src='https://via.placeholder.com/200x200?text=EcoCat'">
-                </div>
-            </div>
-        </section>
+    <section class="hero">
+        <h1>ECOCAT: Gamificando a Sustentabilidade Ambiental</h1>
+    </section>
 
-        <section class="bento-grid" id="ods">
-            <div class="bento-item tall" data-aos="fade-right">
-                <span class="item-tag">ODS 12</span>
-                <h3>Consumo <br>Consciente</h3>
-                <p>Reduzindo o desperdício através da economia circular inteligente.</p>
-                <div class="pixel-icon">🌱</div>
-            </div>
-
-            <div class="bento-item wide" data-aos="fade-left">
-                <div class="content">
-                    <span class="item-tag">Tecnologia</span>
-                    <h3>Godot Engine 2D</h3>
-                    <p>Performance nativa e estética retro-moderna para uma experiência imersiva.</p>
-                </div>
-                <div class="pixel-art-preview"></div>
-            </div>
-
-            <div class="bento-item" data-aos="fade-up" data-aos-delay="100">
-                <h3>Cidades <br>Vivas</h3>
-                <p>Urbanismo sustentável no centro da mecânica (ODS 11).</p>
-            </div>
-
-            <div class="bento-item" data-aos="fade-up" data-aos-delay="200">
-                <h3>Startup <br>Eco</h3>
-                <p>Crie sua própria empresa sustentável dentro do jogo.</p>
-            </div>
-        </section>
-
-        <section class="team-section" id="equipe">
-            <h2 data-aos="fade-up">Quem Somos</h2>
-            <div class="team-grid">
-                <div class="member-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member-photo">
-                        <img src="LINK_FOTO_EDUARDO" alt="Eduardo Alves" onerror="this.src='https://via.placeholder.com/150'">
-                    </div>
-                    <h3>Eduardo Alves</h3>
-                    <span class="role">Desenvolvedor</span>
-                    <p>texto</p>
-                </div>
-
-                <div class="member-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member-photo">
-                        <img src="LINK_FOTO_GIOVANNA" alt="Giovanna Oliveira" onerror="this.src='https://via.placeholder.com/150'">
-                    </div>
-                    <h3>Giovanna Oliveira</h3>
-                    <span class="role">Desenvolvedora / Front End</span>
-                    <p>Identidade visual e Interface web.</p>
-                </div>
-
-                <div class="member-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="member-photo">
-                        <img src="LINK_FOTO_JOAO" alt="João Otávio Almeida" onerror="this.src='https://via.placeholder.com/150'">
-                    </div>
-                    <h3>João Otávio Almeida</h3>
-                    <span class="role">Desenvolvedor</span>
-                    <p>texto</p>
-                </div>
-
-                <div class="member-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="member-photo">
-                        <img src="LINK_FOTO_PEDRO" alt="Pedro Silvestre" onerror="this.src='https://via.placeholder.com/150'">
-                    </div>
-                    <h3>Pedro Silvestre</h3>
-                    <span class="role">Desenvolvedor</span>
-                    <p>texto</p>
-                </div>
-
-                <div class="member-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="member-photo">
-                        <img src="LINK_FOTO_PIETRA" alt="Pietra Demiciano" onerror="this.src='https://via.placeholder.com/150'">
-                    </div>
-                    <h3>Pietra Demiciano</h3>
-                    <span class="role">Desenvolvedora</span>
-                    <p>texto</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="eco-footer">
-        <div class="footer-bottom">
-            <p>© 2026 EcoCat Project - UniFil Computação | Todos os direitos reservados</p>
+    <section class="team-section" id="equipe">
+        <div class="team-header">
+            <h2>Quem somos</h2>
+            <p>Estudantes de Engenharia de Software e Ciência da Computação do Centro Universitário Filadélfia - UniFil, dedicados a criar soluções tecnológicas com impacto ambiental real.</p>
         </div>
-    </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-        
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 35;
-            const y = (window.innerHeight / 2 - e.pageY) / 35;
-            document.querySelector('.blob-1').style.transform = `translate(${x}px, ${y}px)`;
-            document.querySelector('.blob-2').style.transform = `translate(${-x}px, ${-y}px)`;
-        });
-    </script>
+        <div class="team-grid">
+            <div class="team-card" data-full-name="Eduardo Ribeiro Melo Alves" data-bio="Entusiasta de lógica e desenvolvimento de jogos, Eduardo foca em transformar conceitos complexos em mecânicas divertidas. Acredita que a gamificação é o melhor caminho para a educação ambiental.">
+                <div class="member-photo"><img src="img/membro1.jpg" alt="Eduardo"></div>
+                <h3 class="member-name">Eduardo Alves</h3>
+                <p class="member-role">Developer</p>
+                <p class="member-task">Responsável pela mecânica de gameplay e engine do jogo.</p>
+            </div>
+
+            <div class="team-card" data-full-name="Giovanna Henrique de Oliveira" data-bio="Especialista em criar experiências centradas no usuário. Giovanna une estética e funcionalidade para garantir que o ECOCAT seja intuitivo, acessível e visualmente impactante.">
+                <div class="member-photo"><img src="img/giovanna.jpg" alt="Giovanna"></div>
+                <h3 class="member-name">Giovanna Oliveira</h3>
+                <p class="member-role">UI/UX Designer</p>
+                <p class="member-task">Responsável pelo design de interface e identidade visual.</p>
+            </div>
+
+            <div class="team-card" data-full-name="João Otávio Almeida do Santos" data-bio="Desenvolvedor focado em performance e tecnologias web. João é quem faz a ponte entre o design e o código funcional, garantindo que o ECOCAT rode sem travamentos em qualquer tela.">
+                <div class="member-photo"><img src="img/joao.jpg" alt="João"></div>
+                <h3 class="member-name">João Otávio</h3>
+                <p class="member-role">Developer</p>
+                <p class="member-task">Responsável pelo desenvolvimento front-end e integrações.</p>
+            </div>
+
+            <div class="team-card" data-full-name="Pedro Silvestre" data-bio="Arquiteto de sistemas apaixonado por organização de dados. Pedro cuida do núcleo do projeto, garantindo a segurança das informações e uma estrutura de backend robusta e escalável.">
+                <div class="member-photo"><img src="img/pedro.jpg" alt="Pedro"></div>
+                <h3 class="member-name">Pedro Silvestre</h3>
+                <p class="member-role">Developer</p>
+                <p class="member-task">Responsável pela arquitetura de dados e backend.</p>
+            </div>
+
+            <div class="team-card" data-full-name="Pietra Demiciano Oliveira" data-bio="Pesquisadora focada em tecnologia e sustentabilidade. Pietra garante que cada elemento do jogo esteja alinhado com as metas reais das ODS da ONU, trazendo embasamento científico ao projeto.">
+                <div class="member-photo"><img src="img/pietra.jpg" alt="Pietra"></div>
+                <h3 class="member-name">Pietra Demiciano</h3>
+                <p class="member-role">Developer</p>
+                <p class="member-task">Responsável pela lógica ambiental e documentação ODS.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-wrapper">
+        <footer class="supreme-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p>© 2026 <span class="glow-text">Computação UniFil</span>. Direitos Reservados.</p>
+                    <p>Design & Interface por <span class="glow-text">Giovanna Oliveira</span>.</p>
+                </div>
+                <div class="footer-col" style="text-align: right;">
+                    <p id="clock" class="highlight">--:--:--</p>
+                    <p>Projeto de Extensão Universitária | Londrina - PR</p>
+                </div>
+            </div>
+            <div class="giant-brand-container">
+                <div class="giant-brand-bg">ECOCAT</div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="bio-overlay" class="bio-overlay">
+        <div class="bio-content">
+            <div class="bio-photo-large">
+                <img id="modal-img" src="" alt="">
+            </div>
+            <div class="bio-text">
+                <h2 id="modal-name">Nome Completo</h2>
+                <p id="modal-bio">Biografia do integrante...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
