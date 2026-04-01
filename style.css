@@ -1,3 +1,29 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Isso evita que o menu fixo cubra o título da seção ao chegar nela */
+}
+
+/* Estilização para o link ativo (Opcional - Efeito Dev Sênior) */
+.header-nav ul li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.header-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-green);
+    transition: width 0.3s ease;
+}
+
+.header-nav ul li a:hover::after {
+    width: 100%;
+}
+
 :root {
     --bg: #f4f4f6; 
     --text-primary: #1a1a1a;
@@ -22,10 +48,7 @@ body {
     min-height: 100vh;
 }
 
-/* Garante que o body não role quando a janela estiver aberta */
-body.modal-open {
-    overflow: hidden;
-}
+body.modal-open { overflow: hidden; }
 
 /* --- BACKGROUND ANIMATION --- */
 .bg-lights {
@@ -93,9 +116,210 @@ header { padding: 1.5rem 4%; position: fixed; width: 100%; top: 0; z-index: 1000
     box-shadow: 0 4px 15px rgba(0, 137, 123, 0.3); transition: var(--transition);
 }
 
-/* --- HERO --- */
-.hero { padding: 15rem 4% 5rem 4%; text-align: center; }
-.hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 0.95; max-width: 900px; margin: 0 auto; }
+/* --- HERO V6: CENTRALIZAÇÃO E VELOCIDADE --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 4% 40px 4%;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 1. READY TO PLAY (CENTRALIZADO) */
+.hero-tagline {
+    font-family: 'Silkscreen', cursive;
+    color: var(--accent-green);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+/* 2. TÍTULO E CONTAINER DINÂMICO */
+.main-title {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dynamic-container {
+    position: relative;
+    height: 1.1em;
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.word {
+    position: absolute;
+    font-family: 'Silkscreen', cursive;
+    color: var(--accent-green);
+    letter-spacing: -3px; /* Espaçamento reduzido e limpo */
+    opacity: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* ANIMAÇÃO MAIS RÁPIDA: 6 segundos total (2s para cada palavra) */
+    animation: wordQuickCycle 6s infinite;
+}
+
+.word:nth-child(1) { animation-delay: 0s; }
+.word:nth-child(2) { animation-delay: 2s; }
+.word:nth-child(3) { animation-delay: 4s; }
+
+@keyframes wordQuickCycle {
+    0%, 5% { transform: translateY(30px); opacity: 0; }
+    10%, 30% { transform: translateY(0); opacity: 1; }
+    35%, 100% { transform: translateY(-30px); opacity: 0; }
+}
+
+/* MOEDA DINÂMICA */
+.coin {
+    font-size: 0.7em;
+    filter: drop-shadow(0 4px 0 rgba(0,0,0,0.1));
+    animation: coinPop 0.5s ease-out infinite alternate;
+}
+
+@keyframes coinPop {
+    from { transform: scale(1) rotate(0); }
+    to { transform: scale(1.2) rotate(10deg); }
+}
+
+/* 3. SUBTÍTULO CORRIGIDO */
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 2.5rem auto;
+    line-height: 1.6;
+}
+
+/* 4. BOTÕES LADO A LADO */
+.hero-btns {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Evita quebrar em telas muito pequenas */
+}
+
+.btn-main, .btn-secondary {
+    padding: 1.1rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 180px;
+}
+
+.btn-main {
+    background: var(--text-primary);
+    color: white;
+}
+
+.btn-main:hover {
+    background: var(--accent-green);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.btn-secondary {
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background: rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+}
+
+/* --- MANIFESTO ECOCAT: DESIGN SUPREMO COM LUZ NO HOVER --- */
+.manifesto-section { padding: 8rem 4%; perspective: 1000px; }
+.manifesto-wrapper {
+    display: flex; justify-content: space-between; align-items: stretch;
+    gap: 4rem; max-width: 1400px; margin: 0 auto; position: relative;
+}
+
+.impact-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px; padding: 4rem; position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* LUZ DE FUNDO (BACKLIGHT) - AGORA REAGE AO HOVER */
+.impact-box::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    filter: blur(40px); opacity: 0; 
+    transition: opacity 0.6s ease, transform 0.6s ease; z-index: -1;
+}
+
+/* Efeito Geral de Hover */
+.impact-box:hover { 
+    transform: translateY(-20px); 
+    border-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 40px 80px rgba(0,0,0,0.1); 
+}
+
+.impact-box:hover::before { opacity: 1; }
+
+/* LUZ ESPECÍFICA: PROBLEMA (VERMELHA) */
+.impact-box.problem-focus::before {
+    background: radial-gradient(circle, rgba(255, 71, 87, 0.4) 0%, rgba(255, 71, 87, 0) 70%);
+}
+.impact-box.problem-focus:hover { border-color: rgba(255, 71, 87, 0.5); }
+
+/* LUZ ESPECÍFICA: VISÃO (VERDE) */
+.impact-box.vision-focus::before {
+    background: radial-gradient(circle, rgba(0, 137, 123, 0.4) 0%, rgba(0, 137, 123, 0) 70%);
+}
+.impact-box.vision-focus:hover { border-color: rgba(0, 137, 123, 0.5); }
+
+/* STATUS BARS */
+.status-bar { width: 100%; height: 8px; background: rgba(0,0,0,0.05); border-radius: 10px; margin-top: 2rem; overflow: hidden; }
+.fill { height: 100%; transition: width 2s ease; }
+.fill.red { width: 85%; background: #ff4757; }
+.impact-box.problem-focus:hover .fill.red { animation: criticalLoad 1.5s ease-out infinite alternate; }
+@keyframes criticalLoad { 0% { width: 85%; } 100% { width: 95%; background: #e04151; } }
+
+.fill.green { width: 40%; background: var(--accent-green); transition: width 2s ease-in-out; }
+.impact-box.vision-focus:hover .fill.green { width: 100%; }
+
+/* LINHA CENTRAL */
+.center-line {
+    width: 2px; background: linear-gradient(to bottom, transparent, var(--accent-green), transparent);
+    position: relative; display: flex; align-items: center; justify-content: center;
+}
+.pulse-core {
+    width: 20px; height: 20px; background: var(--accent-green);
+    border-radius: 50%; filter: blur(5px); animation: corePulse 2s infinite;
+}
+@keyframes corePulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(4); opacity: 0; } }
+
+/* BADGES E TÍTULOS */
+.pixel-badge {
+    position: absolute; top: 2rem; left: 4rem; font-family: 'Silkscreen', cursive;
+    font-size: 0.7rem; padding: 0.4rem 1rem; background: #ff4757; color: white; border-radius: 4px;
+}
+.pixel-badge.green { background: var(--accent-green); }
+.glitch-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; margin: 2rem 0; color: var(--text-primary); }
 
 /* --- SESSÃO EQUIPE --- */
 .team-section { padding: 6rem 4%; text-align: center; }
@@ -103,160 +327,440 @@ header { padding: 1.5rem 4%; position: fixed; width: 100%; top: 0; z-index: 1000
 .team-header h2 { font-size: 3rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 1rem; }
 .team-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-.team-grid {
-    display: flex; justify-content: center; gap: 1.5rem;
-    padding: 2rem 0; flex-wrap: wrap; 
-}
-
+.team-grid { display: flex; justify-content: center; gap: 1.5rem; padding: 2rem 0; flex-wrap: wrap; }
 .team-card {
     background: var(--glass-bg); backdrop-filter: blur(15px) saturate(150%);
     -webkit-backdrop-filter: blur(15px) saturate(150%);
     border: 1px solid var(--glass-border); border-radius: 32px;
     padding: 2.5rem 1.5rem; width: 240px; transition: var(--transition);
     display: flex; flex-direction: column; align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    cursor: pointer; /* Mudado para pointer indicar clique */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); cursor: pointer;
 }
-
 .team-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.7); }
-
 .member-photo {
     width: 110px; height: 110px; background: rgba(0, 0, 0, 0.05);
-    border-radius: 50%; margin-bottom: 1.5rem; overflow: hidden;
-    border: 2px solid var(--glass-border);
+    border-radius: 50%; margin-bottom: 1.5rem; overflow: hidden; border: 2px solid var(--glass-border);
 }
 .member-photo img { width: 100%; height: 100%; object-fit: cover; }
-
 .member-name { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem; }
 .member-role { font-size: 0.85rem; font-weight: 600; color: var(--accent-green); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .member-task { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1rem; }
 
-/* --- NOVA BIO OVERLAY (CLIQUE + GLASSMORPHISM) --- */
+/* --- BIO OVERLAY --- */
 .bio-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Fundo escuro sutil */
-    backdrop-filter: blur(15px); /* Desfoque do fundo do site */
-    -webkit-backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    display: flex; justify-content: center; align-items: center; z-index: 2000;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
 }
-
-.bio-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
+.bio-overlay.active { opacity: 1; pointer-events: auto; }
 .bio-content {
-    /* EFEITO GLASSMORPHISM FUNDAMENTAL */
-    background: rgba(255, 255, 255, 0.4); /* Fundo semi-transparente */
-    backdrop-filter: blur(25px) saturate(180%); /* Desfoque interno e saturação */
+    background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.6); /* Borda "brilhante" fina */
-    
-    padding: 3rem;
-    border-radius: 40px;
-    display: flex;
-    gap: 3rem;
-    max-width: 900px;
-    width: 92%;
-    transform: translateY(30px) scale(0.95);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6); padding: 3rem; border-radius: 40px;
+    display: flex; gap: 3rem; max-width: 900px; width: 92%;
+    transform: translateY(30px) scale(0.95); transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 0 40px 100px rgba(0,0,0,0.1);
 }
+.bio-overlay.active .bio-content { transform: translateY(0) scale(1); }
+.bio-photo-large { width: 300px; height: 380px; border-radius: 24px; overflow: hidden; flex-shrink: 0; border: 2px solid white; }
+.bio-photo-large img { width: 100%; height: 100%; object-fit: cover; }
+.bio-text h2 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; color: var(--text-primary); }
+.bio-text p { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); }
 
-.bio-overlay.active .bio-content {
-    transform: translateY(0) scale(1);
+/* --- OBJECTIVES SECTION --- */
+.objectives-section { padding: 4rem 4%; }
+.objectives-header { text-align: center; margin-bottom: 3rem; }
+.objectives-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.objectives-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.obj-card {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    padding: 2.5rem; border-radius: 32px; text-align: center; transition: var(--transition);
 }
-
-.bio-photo-large {
-    width: 300px;
-    height: 380px;
-    border-radius: 24px;
-    overflow: hidden;
-    flex-shrink: 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border: 2px solid white; /* Destaque na foto interna */
-}
-
-.bio-photo-large img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.bio-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.bio-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    color: var(--text-primary);
-}
-
-.bio-text p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-}
+.obj-card:hover { background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); transform: translateY(-5px); }
+.obj-icon { font-size: 2.8rem; margin-bottom: 1.5rem; display: block; filter: drop-shadow(0 0 10px rgba(0, 137, 123, 0.2)); transition: transform 0.3s ease; }
+.obj-card:hover .obj-icon { transform: scale(1.2) rotate(5deg); }
 
 /* --- FOOTER --- */
 .footer-wrapper { padding: 0 8px 8px 8px; width: 100%; margin-top: 4rem; }
 .supreme-footer {
-    background: var(--glass-bg); backdrop-filter: blur(30px) saturate(200%);
-    -webkit-backdrop-filter: blur(30px) saturate(200%);
-    border-radius: 40px; border: 1px solid var(--glass-border);
-    padding: 6rem 4% 0rem 4%; position: relative; overflow: hidden; 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    background: var(--glass-bg); backdrop-filter: blur(30px) saturate(200%); -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border-radius: 40px; border: 1px solid var(--glass-border); padding: 6rem 4% 0rem 4%; position: relative; overflow: hidden;
 }
-
 .footer-grid { display: flex; justify-content: space-between; position: relative; z-index: 10; width: 100%; }
-.footer-col p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.4rem; }
-
-.glow-text { 
-    color: var(--text-primary); 
-    font-weight: 700; 
-    transition: var(--transition); 
-    display: inline-block; 
-    cursor: default;
-}
-.glow-text:hover { 
-    color: var(--accent-green); 
-    text-shadow: 0 0 15px rgba(0, 137, 123, 0.4); 
-    transform: scale(1.02); 
-}
-
-.highlight { 
-    color: var(--accent-green) !important; 
-    font-weight: 700; 
-    font-family: 'Silkscreen', cursive; 
-    font-size: 0.9rem;
-}
-
-.giant-brand-container { width: 100%; display: flex; justify-content: center; margin-top: 1rem; }
 .giant-brand-bg {
-    font-size: 26vw; font-weight: 800; color: #ffffff;
-    letter-spacing: -0.07em; line-height: 0.8; margin-bottom: -4vw;
-    text-transform: uppercase; user-select: none;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.02));
+    font-size: 26vw; 
+    font-weight: 800; 
+    color: #ffffff; 
+    letter-spacing: -0.07em; 
+    line-height: 0.8; 
+    margin-bottom: -4vw;
+    text-transform: uppercase; 
+    user-select: none; 
     transition: transform 0.2s ease-out;
+
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    
+    /* Puxamos o texto para a esquerda com um valor maior para compensar o vácuo */
+    transform: translateX(-2.0vw); 
+    
+    white-space: nowrap; 
 }
 
-@media (max-width: 900px) {
-    .nav-links { display: none; }
-    .team-grid { flex-direction: column; align-items: center; }
-    .team-card { width: 100%; max-width: 300px; }
-    .bio-content { flex-direction: column; padding: 2rem; align-items: center; text-align: center; }
+/* --- BRILHO INTEGRADO (MESMA FONTE E TAMANHO) --- */
+.highlight-neon {
+    color: #00897b; /* O verde do EcoCat */
+    transition: all 0.3s ease;
+    /* Brilho neon sutil que não altera o tamanho da letra */
+    text-shadow: 0 0 8px rgba(0, 137, 123, 0.5);
+    cursor: default;
+    font-family: inherit; /* Garante que use a mesma fonte do parágrafo */
+    font-size: inherit;   /* Garante que use o mesmo tamanho do parágrafo */
+}
+
+/* Opcional: aumenta o brilho quando passa o mouse sem mudar o corpo do texto */
+.highlight-neon:hover {
+    text-shadow: 0 0 12px rgba(0, 137, 123, 0.8);
+}
+
+/* RESPONSIVIDADE FINAL */
+@media (max-width: 1024px) {
+    .manifesto-wrapper { flex-direction: column; }
+    .center-line { display: none; }
+    .glitch-title { font-size: 2.5rem; }
+    .bio-content { flex-direction: column; align-items: center; text-align: center; }
     .bio-photo-large { width: 180px; height: 180px; border-radius: 50%; }
+}
+
+/* --- NOVAS SEÇÕES: JUSTIFICATIVA E COMUNIDADE --- */
+.content-section { padding: 6rem 4%; }
+.split-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+
+.extension-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 40px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+}
+
+.extension-box h3 {
+    font-family: 'Silkscreen', cursive;
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.community-section { padding: 4rem 4%; }
+.community-card {
+    background: var(--text-primary);
+    color: white;
+    padding: 5rem;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.community-card h2 { font-size: 3rem; margin-bottom: 3rem; font-weight: 800; letter-spacing: -2px; }
+
+.badge-new {
+    background: var(--accent-green);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 100px;
+    font-family: 'Silkscreen';
+    font-size: 0.7rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+
+.benefit-item span {
+    font-family: 'Silkscreen';
+    color: var(--accent-green);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.benefit-item p { font-size: 1rem; line-height: 1.6; opacity: 0.9; }
+
+/* Ajuste Responsivo */
+@media (max-width: 900px) {
+    .split-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .community-card { padding: 3rem 2rem; }
+}
+
+.pro-experience-section {
+    position: relative;
+    padding: 10rem 4%;
+    background: transparent; /* Remove o fundo branco */
+    overflow: hidden;
+}
+
+/* Garante que o grid mantenha as sessões uma do lado da outra */
+.pro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 5rem;
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* Ajuste do Badge para não atropelar o título */
+.justificativa-interactive {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Aproxima o badge do título */
+.justificativa-interactive .pixel-badge {
+    position: static;
+    margin-bottom: 0.0rem; 
+    display: inline-block;
+}
+
+/* Cards com Glassmorphism (Sem o fundo branco sólido) */
+.j-card {
+    background: var(--glass-bg); 
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    padding: 2.2rem;
+    border-radius: 32px;
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.j-card:hover {
+    transform: translateX(20px);
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--accent-green);
+}
+
+.reflection-terminal {
+    background: #1a1a1a; /* Cor preta quase absoluta para máximo contraste */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borda bem sutil */
+    border-radius: 24px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5); /* Sombra mais pesada para dar profundidade */
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.03); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center; /* Alinha verticalmente no centro */
+    gap: 15px; /* Espaço entre as bolinhas e o texto */
+}
+
+/* Garante que o título do terminal não tenha margens estranhas */
+.terminal-title {
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin: 0; 
+    line-height: 1;
+}
+
+.dots { display: flex; gap: 8px; }
+.dots span { width: 12px; height: 12px; border-radius: 50%; }
+.dots span:nth-child(1) { background: #ff5f56; }
+.dots span:nth-child(2) { background: #ffbd2e; }
+.dots span:nth-child(3) { background: #27c93f; }
+
+.terminal-title { color: #888; font-size: 0.8rem; letter-spacing: 1px; }
+
+.terminal-body {
+    padding: 2rem;
+    color: #d4d4d4;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Highlight de código */
+.code-keyword { color: #c586c0; }
+.code-func { color: #dcdcaa; }
+.code-string { color: #ce9178; }
+.code-comment { color: #6a9955; }
+
+.terminal-footer-text {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    font-family: 'Inter', sans-serif;
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .pro-grid { grid-template-columns: 1fr; }
+    .j-card:hover { transform: translateY(-10px); }
+}
+
+/* Estiliza o container do ícone para garantir alinhamento vertical centralizado */
+.j-icon.pro-icon {
+    font-size: 3.5rem; /* AUMENTADO: De 2rem para 3.5rem (Tamanho de destaque Sênior) */
+    color: #ffffff;    /* COR: Branco puro */
+    opacity: 0.85;     /* Um toque sutil de transparência para integrar ao Glassmorphism */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;   /* Garante que o container não esmague o ícone */
+    
+    /* Um brilho sutil de fundo para os ícones, combinando com o tema do EcoCat */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); 
+    transition: all 0.3s ease;
+}
+
+/* Efeito no Hover: O ícone acende ainda mais */
+.j-card:hover .pro-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(0, 137, 123, 0.6)); /* Brilho verde no hover */
+    transform: scale(1.1); /* Pequeno pulo do ícone no hover */
+}
+
+/* --- ECO STORY SECTION --- */
+
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Container do Personagem */
+.eco-visual-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eco-platform {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 137, 123, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eco-sprite {
+    /* Aumentamos a escala da imagem para ocupar quase toda a plataforma */
+    width: 150%; 
+    height: auto;
+    position: absolute;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3)); /* Sombra mais profunda para o tamanho maior */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 5;
+}
+
+/* Efeito de Troca de Personagem no Hover */
+.eco-2 { opacity: 0; transform: scale(0.8) translateY(20px); }
+.eco-visual-container:hover .eco-1 { opacity: 0; transform: scale(0.8) translateY(-20px); }
+.eco-visual-container:hover .eco-2 { opacity: 1; transform: scale(1) translateY(0); }
+
+.eco-label {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.eco-name {
+    font-family: 'Silkscreen', cursive;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+}
+
+/* Conteúdo Textual */
+.modern-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 1.5rem 0;
+    letter-spacing: -2px;
+}
+
+.highlight-green {
+    color: var(--accent-green);
+    position: relative;
+}
+
+.story-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+/* Feature Steps - Estilo Minimalista Sênior */
+.feature-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.step-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.step-item:hover {
+    transform: translateX(15px);
+    background: white;
+    border-color: var(--accent-green);
+}
+
+.step-number {
+    font-family: 'Silkscreen', cursive;
+    color: var(--accent-green);
+    font-size: 1.5rem;
+    background: rgba(0, 137, 123, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.step-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.step-text strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .story-grid { grid-template-columns: 1fr; text-align: center; }
+    .eco-platform { width: 300px; height: 300px; margin: 0 auto; }
+    .feature-steps { text-align: left; }
 }

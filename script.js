@@ -16,7 +16,7 @@ document.addEventListener('mousemove', (e) => {
     const giantText = document.querySelector('.giant-brand-bg');
     if(giantText) {
         giantText.style.transform = `translateX(${moveX}px)`;
-    }
+}
 });
 
 // --- NOVA LÓGICA DA JANELA INTERATIVA (CLIQUE + FECHAMENTO INTELIGENTE) ---
@@ -67,3 +67,26 @@ document.addEventListener('keydown', (e) => {
         closeModal();
     }
 });
+;
+
+// --- EFEITO MAGNÉTICO Z NO TÍTULO PRINCIPAL (MÓDULO SÊNIOR) ---
+const magneticText = document.querySelector('.magnetic-text');
+
+if (magneticText) {
+    magneticText.addEventListener('mousemove', (e) => {
+        const { offsetWidth: width, offsetHeight: height } = magneticText;
+        const { offsetX: x, offsetY: y } = e;
+
+        // Calcula a inclinação com base na posição do mouse (máximo 10 graus)
+        const moveX = (x / width - 0.5) * 20;
+        const moveY = (y / height - 0.5) * 20;
+
+        // Aplica a transformação 3D
+        magneticText.style.transform = `rotateX(${-moveY}deg) rotateY(${moveX}deg) scale(1.02)`;
+    });
+
+    magneticText.addEventListener('mouseleave', () => {
+        // Reseta a transformação quando o mouse sai
+        magneticText.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+}
