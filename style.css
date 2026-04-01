@@ -764,3 +764,237 @@ header { padding: 1.5rem 4%; position: fixed; width: 100%; top: 0; z-index: 1000
     .eco-platform { width: 300px; height: 300px; margin: 0 auto; }
     .feature-steps { text-align: left; }
 }
+
+/* RESPONSIVIDADE GLOBAL (TELAS ATÉ 768px) */
+@media (max-width: 768px) {
+
+    /* 1. Ajustes Gerais de Seção e Layout */
+    section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        overflow: visible !important; /* Permite que sombras e badges apareçam */
+    }
+
+    body, html {
+        overflow-x: hidden; /* Evita scroll lateral acidental */
+    }
+
+    /* 2. Menu de Navegação */
+    .nav-container {
+        padding: 0.5rem 1rem;
+        margin: 0 10px;
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none; /* Oculta links para simplificar o mobile */
+    }
+
+    /* 3. Hero Section */
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        gap: 1rem;
+    }
+
+    .btn-main, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 4. Seção Eco Story (Gatinho e Personagem) */
+    .eco-story-section {
+        padding-top: 2rem !important;
+        margin-top: -2rem;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 0 5%;
+        text-align: center;
+    }
+
+    .eco-platform {
+        width: 260px !important;
+        height: 260px !important;
+        margin: 0 auto;
+    }
+
+    .eco-sprite {
+        width: 120% !important;
+        left: -10%;
+    }
+
+    .modern-title {
+        font-size: 2rem !important;
+        margin: 1rem 0 !important;
+    }
+
+    .feature-steps {
+        text-align: left;
+        gap: 1rem !important;
+    }
+
+    .step-item {
+        padding: 1.2rem !important;
+        transform: none !important;
+    }
+
+    .step-item:hover {
+        transform: translateY(-5px) !important;
+    }
+
+    /* 5. Seção Manifesto (Problema vs Visão) */
+    .manifesto-section {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .manifesto-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .impact-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.5rem !important;
+    }
+
+    .impact-box .pixel-badge {
+        position: static !important;
+        margin-bottom: 1rem;
+    }
+
+    .glitch-title {
+        font-size: 2.2rem !important;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    /* 6. Terminal e Justificativa */
+    .pro-grid {
+        grid-template-columns: 1fr !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px !important;
+        gap: 3rem;
+        overflow: visible !important;
+    }
+
+    .j-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+        transform: none !important;
+    }
+
+    .j-card:hover {
+        transform: translateY(-5px) !important;
+    }
+
+    .reflection-terminal {
+        width: calc(100% - 30px) !important;
+        margin: 20px auto !important;
+        font-size: 0.8rem;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .terminal-body {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .terminal-body pre {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+    }
+
+    /* 7. Equipe e Comunidade */
+    .team-grid {
+        gap: 1rem;
+    }
+
+    .team-card {
+        width: 100%;
+    }
+
+    /* 8. Footer (Rodapé Profissional) */
+    .supreme-footer {
+        padding: 3rem 1.5rem 1.5rem 1.5rem !important;
+        text-align: center !important;
+        border-radius: 30px 30px 0 0 !important;
+        position: relative;
+        overflow: visible !important;
+    }
+
+    .footer-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        position: relative;
+        z-index: 10;
+    }
+
+    #clock-container, .clock-display { 
+        font-family: 'Silkscreen', cursive;
+        font-size: 0.8rem !important;
+        color: var(--accent-green) !important;
+    }
+
+    /* Marca Gigante ECOCAT ao Fundo */
+    .giant-brand-container {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        z-index: 1;
+        opacity: 0.12 !important;
+        pointer-events: none;
+    }
+
+    .giant-brand-bg {
+        font-size: 18vw !important;
+        margin: 0 !important;
+        transform: translateX(0) !important;
+        text-align: center;
+        white-space: nowrap;
+    }
+}
+
+/* AJUSTES EXTRAS PARA TELAS MUITO PEQUENAS (ATÉ 480px)*/
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .bio-content {
+        padding: 1.5rem;
+    }
+
+    .glitch-title {
+        font-size: 1.8rem !important;
+    }
+}
