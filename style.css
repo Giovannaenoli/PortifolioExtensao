@@ -998,3 +998,185 @@ header { padding: 1.5rem 4%; position: fixed; width: 100%; top: 0; z-index: 1000
         font-size: 1.8rem !important;
     }
 }
+
+/* SEÇÃO: QUEM SOMOS (EQUIPE) */
+
+/* Ajuste no card para acomodar o conteúdo extra */
+.team-card {
+    padding-bottom: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Subtítulo com o curso do integrante */
+.member-course {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--accent-green);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+/* Link estilizado do GitHub */
+.member-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.member-github i {
+    font-size: 1.1rem;
+}
+
+.member-github:hover {
+    background: var(--accent-green);
+    color: #000;
+    transform: translateY(-2px);
+    border-color: var(--accent-green);
+}
+
+/* SEÇÃO: REFLEXÃO ACADÊMICA & EXTENSÃO (DESKTOP) */
+
+/* Ajuste da seção anterior para não cortar a sombra do terminal */
+.pro-experience-section {
+    padding-bottom: 8rem !important;
+    margin-bottom: 0 !important;
+    overflow: visible !important;
+}
+
+/* Container principal da reflexão */
+.extension-reflexion {
+    padding: 6rem 2rem;
+    background: radial-gradient(circle at center, rgba(0, 255, 157, 0.03) 0%, transparent 70%);
+    transform: translateY(-6rem); /* Puxa a seção para integrar com o terminal */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    background: transparent !important;
+}
+
+.extension-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Badge "Projeto de Extensão" */
+.extension-badge {
+    background: rgba(0, 255, 157, 0.1);
+    color: var(--accent-green);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--accent-green);
+    margin-top: 2rem;
+}
+
+/* Grid de cards de aprendizado */
+.extension-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.learning-node {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.learning-node:hover {
+    transform: translateY(-10px);
+    background: rgba(0, 255, 157, 0.05);
+    border-color: rgba(0, 255, 157, 0.3);
+}
+
+.node-icon {
+    font-size: 2.5rem;
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+}
+
+.learning-node h3 {
+    color: #1e1e1e; 
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.learning-node p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Frase de efeito acadêmica */
+.academic-quote {
+    margin-top: 5rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    border-left: 3px solid var(--accent-green);
+    padding-left: 20px;
+    display: inline-block;
+    max-width: 700px;
+}
+
+/* RESPONSIVIDADE (MOBILE)*/
+
+@media (max-width: 768px) {
+    /* Ajuste de espaçamento entre seções */
+    .pro-experience-section {
+        padding-bottom: 2rem !important;
+    }
+
+    .extension-reflexion {
+        transform: translateY(-1.5rem) !important; /* Menor deslocamento no mobile */
+        position: relative;
+        z-index: 5;
+    }
+
+    /* Grid em coluna única */
+    .extension-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .learning-node {
+        padding: 2rem 1rem;
+    }
+
+    /* Ajuste de espaçamento dos textos e badge */
+    .extension-badge {
+        margin-top: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .extension-reflexion .modern-title {
+        margin-top: 1rem !important;
+        font-size: 1.8rem !important;
+    }
+
+    .academic-quote {
+        font-size: 0.9rem;
+        margin-top: 3rem;
+    }
+}
