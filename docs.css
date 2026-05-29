@@ -1,0 +1,561 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DA PÁGINA DE DOCUMENTAÇÃO (docs.html)
+   Desenvolvido sob a mesma identidade premium, moderna e fluida do EcoCat.
+   ========================================================================== */
+
+/* --- DESTAQUE LINK ATIVO NAVBAR --- */
+.nav-links a.active-link {
+    color: var(--accent-green) !important;
+    position: relative;
+}
+
+.nav-links a.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-green);
+    border-radius: 10px;
+}
+
+/* --- HERO DA DOCUMENTAÇÃO --- */
+.docs-hero {
+    padding: 160px 4% 50px 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.docs-hero-content {
+    max-width: 850px;
+    width: 100%;
+}
+
+.docs-tagline {
+    font-family: 'Silkscreen', cursive;
+    color: var(--accent-green);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+}
+
+.docs-title {
+    font-size: clamp(2.3rem, 6.5vw, 4.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.docs-subtitle {
+    font-size: 1.18rem;
+    color: var(--text-secondary);
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* --- CONTAINER DO VISUALIZADOR DE PDF --- */
+.docs-viewer-section {
+    padding: 1rem 0 4rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.docs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 24px;
+}
+
+/* Moldura Imersiva estilo Janela de Sistema/Editor de Código */
+.docs-window {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.08);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.docs-window:hover {
+    border-color: rgba(0, 137, 123, 0.35);
+    box-shadow: 0 40px 100px rgba(0, 137, 123, 0.07);
+}
+
+/* Barra de Título / Controle de Janela */
+.window-header {
+    background: rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1.1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.control-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.control-dot.close { background: #ff5f56; }
+.control-dot.minimize { background: #ffbd2e; }
+.control-dot.expand { background: #27c93f; }
+
+.window-title {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+}
+
+.window-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.window-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.window-action-btn:hover {
+    background: var(--accent-green);
+    color: white;
+    border-color: var(--accent-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 137, 123, 0.25);
+}
+
+.window-body {
+    background: rgba(255, 255, 255, 0.25);
+    position: relative;
+    width: 100%;
+}
+
+.pdf-iframe {
+    width: 100%;
+    height: 850px;
+    border: none;
+    display: block;
+    background: #fdfdfd;
+}
+
+/* Card Mobile Otimizado (oculto por padrão em telas desktop) */
+.pdf-mobile-card {
+    display: none;
+    padding: 4.5rem 2rem;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* --- SEÇÃO DETALHES COMPLEMENTARES --- */
+.docs-details-section {
+    padding: 7rem 0 5rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.details-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.details-header h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+}
+
+.details-header p {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4.5rem;
+}
+
+/* --- NOVOS ESTILOS HUD PREMIUM --- */
+.details-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3.2rem 2.2rem 2.4rem 2.2rem;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Variáveis de cores temáticas dos cartões */
+.card-mechanics {
+    --accent-color: #00897b;
+    --card-glow: rgba(0, 137, 123, 0.15);
+}
+.card-economy {
+    --accent-color: #ffbd2e;
+    --card-glow: rgba(255, 189, 46, 0.18);
+}
+.card-ods {
+    --accent-color: #27c93f;
+    --card-glow: rgba(39, 201, 63, 0.15);
+}
+.card-tech {
+    --accent-color: #1e88e5;
+    --card-glow: rgba(30, 136, 229, 0.15);
+}
+
+.details-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px var(--card-glow);
+}
+
+/* Cantos Decorativos estilo HUD */
+.card-corners {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.details-card:hover .corner {
+    border-color: var(--accent-color);
+    width: 12px;
+    height: 12px;
+}
+
+.corner.top-left {
+    top: 12px;
+    left: 12px;
+    border-width: 2px 0 0 2px;
+}
+
+.corner.top-right {
+    top: 12px;
+    right: 12px;
+    border-width: 2px 2px 0 0;
+}
+
+.corner.bottom-left {
+    bottom: 12px;
+    left: 12px;
+    border-width: 0 0 2px 2px;
+}
+
+.corner.bottom-right {
+    bottom: 12px;
+    right: 12px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Tagline Superior */
+.card-tag {
+    font-family: 'Silkscreen', cursive;
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.details-card:hover .card-tag {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-color);
+}
+
+/* Ícones vetoriais com badge iluminada */
+.card-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.card-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background: var(--accent-color);
+    filter: blur(8px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.details-card:hover .card-badge {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: scale(1.1) rotate(-6deg);
+    box-shadow: 0 6px 15px var(--card-glow);
+}
+
+.details-card:hover .card-badge::before {
+    opacity: 0.5;
+}
+
+.details-card h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.5px;
+}
+
+.details-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Botão de Retorno */
+.docs-back-action {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.2rem 3rem;
+    background: var(--text-primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn-back:hover {
+    background: var(--accent-green);
+    transform: translateY(-5px) scale(1.02);
+    color: white;
+    box-shadow: 0 15px 30px rgba(0, 137, 123, 0.25);
+}
+
+.btn-back i {
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover i {
+    transform: translateX(-4px);
+}
+
+/* ==========================================================================
+   REGRAS RESPONSIVAS (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .docs-hero {
+        padding: 180px 4% 35px 4% !important;
+    }
+    
+    .docs-title {
+        font-size: 2.2rem;
+        letter-spacing: -1.5px;
+    }
+    
+    .docs-subtitle {
+        font-size: 1.05rem;
+    }
+    
+    .docs-viewer-section {
+        padding: 0.5rem 0 3rem 0;
+    }
+    
+    .docs-container {
+        padding: 0 16px;
+    }
+    
+    /* Alterna os visualizadores para Mobile */
+    .pdf-iframe {
+        display: none;
+    }
+    
+    .pdf-mobile-card {
+        display: flex;
+    }
+    
+    .mobile-card-icon {
+        font-size: 4.5rem;
+        color: #ff4757;
+        margin-bottom: 1.8rem;
+        animation: floatPDF 3.5s infinite alternate ease-in-out;
+        filter: drop-shadow(0 6px 15px rgba(255, 71, 87, 0.2));
+    }
+    
+    @keyframes floatPDF {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    
+    .pdf-mobile-card h3 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.8rem;
+    }
+    
+    .pdf-mobile-card p {
+        color: var(--text-secondary);
+        font-size: 0.98rem;
+        line-height: 1.6;
+        max-width: 440px;
+        margin-bottom: 2.5rem;
+        padding: 0 10px;
+    }
+    
+    .mobile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .mobile-btn {
+        padding: 1.1rem 2rem;
+        border-radius: 100px;
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .mobile-btn.primary {
+        background: var(--text-primary);
+        color: white;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .mobile-btn.primary:hover {
+        background: var(--accent-green);
+        transform: translateY(-3px);
+    }
+    
+    .mobile-btn.secondary {
+        border: 2px solid var(--text-primary);
+        color: var(--text-primary);
+        background: transparent;
+    }
+    
+    .mobile-btn.secondary:hover {
+        background: rgba(0, 0, 0, 0.04);
+        transform: translateY(-3px);
+    }
+    
+    /* Detalhes complementares no Mobile */
+    .docs-details-section {
+        padding: 4rem 0 3rem 0;
+    }
+    
+    .details-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .details-header h2 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+    
+    .details-header p {
+        font-size: 1rem;
+    }
+    
+    .details-grid {
+        gap: 1.2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .details-card {
+        padding: 2.2rem 1.8rem;
+    }
+}

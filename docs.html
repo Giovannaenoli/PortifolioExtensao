@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOCAT | Documentação - Game Design Document</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+    <!-- BACKGROUND ANIMATION ORBS -->
+    <div class="bg-lights">
+        <div class="orb orb-green"></div>
+        <div class="orb orb-blue"></div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <div class="nav-left" onclick="window.location.href='index.html'" style="cursor: pointer;">
+                <div class="uni-logo">
+                    <img src="img/01397272-d3df-470e-b8d5-46a1c5819957-removebg-preview.png" alt="Logo UniFil">
+                </div>
+                <div class="logo-nav">ECOCAT</div>
+            </div>
+            
+            <div class="nav-right">
+                <nav class="nav-links">
+                    <a href="index.html#o-jogo">O Projeto</a>
+                    <a href="index.html#problema">O Problema</a>
+                    <a href="index.html#objetivos">Objetivos</a>
+                    <a href="index.html#justificativa">Justificativa</a>
+                    <a href="index.html#comunidade">Comunidade</a>
+                    <a href="index.html#equipe">Quem Somos</a>
+                    <a href="docs.html" class="active-link">Documentação</a>
+                </nav>
+                <a href="index.html" class="btn-together">Conheça o Jogo</a>
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="docs-hero">
+        <div class="docs-hero-content">
+            <span class="docs-tagline">ESPECIFICAÇÕES DO PROJETO</span>
+            
+            <h1 class="docs-title">
+                GAME DESIGN DOCUMENT 
+                <span class="highlight-green">(GDD)</span>
+            </h1>
+            
+            <p class="docs-subtitle">
+                Explore a fundamentação conceitual, regras do simulador, economia circular gamificada e as diretrizes pedagógicas de sustentabilidade que sustentam o <strong>EcoCat</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- PDF VIEWER SECTION -->
+    <section class="docs-viewer-section">
+        <div class="docs-container">
+            
+            <!-- Simulador de Janela de Desenvolvimento -->
+            <div class="docs-window">
+                <div class="window-header">
+                    <div class="window-controls">
+                        <span class="control-dot close"></span>
+                        <span class="control-dot minimize"></span>
+                        <span class="control-dot expand"></span>
+                    </div>
+                    <div class="window-title">
+                        <i class="far fa-file-pdf" style="color: #ff4757; margin-right: 6px;"></i>
+                        docs/Game Design Document (GDD) - EcoCat.pdf
+                    </div>
+                    <div class="window-actions">
+                        <a href="docs/Game Design Document (GDD) - EcoCat.pdf" target="_blank" class="window-action-btn" title="Visualizar em Tela Cheia">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </a>
+                        <a href="docs/Game Design Document (GDD) - EcoCat.pdf" download class="window-action-btn" title="Baixar GDD (PDF)">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="window-body">
+                    <!-- Iframe do PDF para Computadores -->
+                    <iframe src="docs/Game Design Document (GDD) - EcoCat.pdf#toolbar=0" class="pdf-iframe" title="GDD EcoCat PDF"></iframe>
+                    
+                    <!-- Card alternativo para Dispositivos Móveis -->
+                    <div class="pdf-mobile-card">
+                        <div class="mobile-card-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Game Design Document</h3>
+                        <p>O visualizador de documentos integrado funciona melhor em telas maiores. Clique abaixo para ler a documentação completa diretamente.</p>
+                        <div class="mobile-actions">
+                            <a href="docs/Game Design Document (GDD) - EcoCat.pdf" target="_blank" class="mobile-btn primary">
+                                <i class="fas fa-eye"></i> Visualizar
+                            </a>
+                            <a href="docs/Game Design Document (GDD) - EcoCat.pdf" download class="mobile-btn secondary">
+                                <i class="fas fa-download"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTENT OVERVIEW DETAILS -->
+    <section class="docs-details-section">
+        <div class="docs-container">
+            <div class="details-header">
+                <h2>O que compõe o documento?</h2>
+                <p>Os pilares essenciais que estruturam a experiência educativa e tecnológica do EcoCat.</p>
+            </div>
+            
+            <div class="details-grid">
+                
+                <!-- CARD 1: MECÂNICAS -->
+                <div class="details-card card-mechanics">
+                    <div class="card-corners">
+                        <span class="corner top-left"></span>
+                        <span class="corner top-right"></span>
+                        <span class="corner bottom-left"></span>
+                        <span class="corner bottom-right"></span>
+                    </div>
+                    <span class="card-tag">SYSTEM.01 // MECHANICS</span>
+                    <div class="card-badge">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Mecânicas de Game</h3>
+                    <p>Loop dinâmico de coleta de recicláveis com segregação inteligente, aprimoramento de equipamentos e evolução de carreira do Eco Catador até Bio-Empresário.</p>
+                </div>
+                
+                <!-- CARD 2: ECONOMIA -->
+                <div class="details-card card-economy">
+                    <div class="card-corners">
+                        <span class="corner top-left"></span>
+                        <span class="corner top-right"></span>
+                        <span class="corner bottom-left"></span>
+                        <span class="corner bottom-right"></span>
+                    </div>
+                    <span class="card-tag">SYSTEM.02 // CIRCULAR</span>
+                    <div class="card-badge">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Economia Circular</h3>
+                    <p>Sistemas baseados em "Recicle para Lucrar". O resíduo coletado vira capital imediato (Eco-Tokens) para reinvestimento tecnológico em sua própria Garagem.</p>
+                </div>
+                
+                <!-- CARD 3: ODS -->
+                <div class="details-card card-ods">
+                    <div class="card-corners">
+                        <span class="corner top-left"></span>
+                        <span class="corner top-right"></span>
+                        <span class="corner bottom-left"></span>
+                        <span class="corner bottom-right"></span>
+                    </div>
+                    <span class="card-tag">SYSTEM.03 // ECOLOGICAL</span>
+                    <div class="card-badge">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Impacto ODS & ESG</h3>
+                    <p>Fundamentação pedagógica alinhada com as metas do ODS 11 (Cidades Sustentáveis) e ODS 12 (Consumo Responsável), estimulando novos hábitos reais.</p>
+                </div>
+                
+                <!-- CARD 4: TECH -->
+                <div class="details-card card-tech">
+                    <div class="card-corners">
+                        <span class="corner top-left"></span>
+                        <span class="corner top-right"></span>
+                        <span class="corner bottom-left"></span>
+                        <span class="corner bottom-right"></span>
+                    </div>
+                    <span class="card-tag">SYSTEM.04 // ARCHITECTURE</span>
+                    <div class="card-badge">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Godot & Interface</h3>
+                    <p>Arquitetura modular de cenas desenvolvida na Godot Engine, otimizada para navegadores Web, com interfaces baseadas em grades e animações responsivas.</p>
+                </div>
+                
+            </div>
+            
+            <div class="docs-back-action">
+                <a href="index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Portal Principal
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer-wrapper">
+        <footer class="supreme-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p>© 2026 <span class="highlight-neon">Computação UniFil</span>. Direitos Reservados.</p>
+                    <p>Design & Interface por <span class="highlight-neon">Giovanna Oliveira</span>.</p>
+                </div>
+                <div class="footer-col" style="text-align: right;">
+                    <p id="clock" class="highlight">--:--:--</p>
+                    <p>Projeto de Extensão Universitária | Londrina - PR</p>
+                </div>
+            </div>
+            <div class="giant-brand-container">
+                <div class="giant-brand-bg">ECOCAT</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="script.js"></script>
+</body>
+</html>
