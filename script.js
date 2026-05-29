@@ -28,42 +28,48 @@ const modalImg = document.getElementById('modal-img');
 const body = document.body;
 
 // Função para abrir o modal
-cards.forEach(card => {
-    // Mudado de 'mouseenter' para 'click'
-    card.addEventListener('click', () => {
-        // Coleta as informações personalizadas do Card
-        const fullName = card.getAttribute('data-full-name');
-        const bioText = card.getAttribute('data-bio');
-        const imgSrc = card.querySelector('img').src;
+if (cards.length > 0 && overlay) {
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Coleta as informações personalizadas do Card
+            const fullName = card.getAttribute('data-full-name');
+            const bioText = card.getAttribute('data-bio');
+            const imgEl = card.querySelector('img');
+            const imgSrc = imgEl ? imgEl.src : '';
 
-        // Alimenta o Modal
-        modalName.textContent = fullName;
-        modalBio.textContent = bioText;
-        modalImg.src = imgSrc;
+            // Alimenta o Modal
+            if (modalName) modalName.textContent = fullName;
+            if (modalBio) modalBio.textContent = bioText;
+            if (modalImg) modalImg.src = imgSrc;
 
-        // Ativa o Overlay e trava a rolagem do fundo
-        overlay.classList.add('active');
-        body.classList.add('modal-open');
+            // Ativa o Overlay e trava a rolagem do fundo
+            overlay.classList.add('active');
+            body.classList.add('modal-open');
+        });
     });
-});
+}
 
 // Função para fechar o modal
 function closeModal() {
-    overlay.classList.remove('active');
+    if (overlay) {
+        overlay.classList.remove('active');
+    }
     body.classList.remove('modal-open');
 }
 
 // Fecha se clicar no fundo desfocado (fora do conteúdo)
-overlay.addEventListener('click', (e) => {
-    // Se o alvo do clique for o overlay (fundo) e não o bio-content
-    if (e.target === overlay) {
-        closeModal();
-    }
-});
+if (overlay) {
+    overlay.addEventListener('click', (e) => {
+        // Se o alvo do clique for o overlay (fundo) e não o bio-content
+        if (e.target === overlay) {
+            closeModal();
+        }
+    });
+}
 
 // Fecha se pressionar a tecla 'Esc'
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
         closeModal();
     }
 });
@@ -88,5 +94,34 @@ if (magneticText) {
     magneticText.addEventListener('mouseleave', () => {
         // Reseta a transformação quando o mouse sai
         magneticText.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+}
+
+// --- LÓGICA DO MENU HAMBURGER MOBILE ---
+const menuToggle = document.getElementById('mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Fecha o menu ao clicar em qualquer link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Fecha o menu ao clicar fora dele
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
     });
 }
