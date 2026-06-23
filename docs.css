@@ -78,6 +78,20 @@
 }
 
 /* Moldura Imersiva estilo Janela de Sistema/Editor de Código */
+.doc-section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.docs-container > .doc-section-title:first-child {
+    margin-top: 0;
+}
 .docs-window {
     background: var(--glass-bg);
     backdrop-filter: blur(25px) saturate(180%);
@@ -87,6 +101,11 @@
     overflow: hidden;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.08);
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-bottom: 3rem;
+}
+
+.docs-window:last-child {
+    margin-bottom: 0;
 }
 
 .docs-window:hover {
